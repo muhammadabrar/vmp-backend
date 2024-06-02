@@ -16,9 +16,28 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true
     },
+    phone: {
+      type: String,
+      required: true,
+      unique: true,
+      select: false,
+
+    },
     password: {
       type: String,
       required: true
+    },
+    verified: {
+      type: Boolean,
+      default: false
+    },
+    OTP:{
+      type: Number,
+      required: true
+
+    },
+    OTP_validation_time:{
+        type: Date,
     },
     role: {
       type: String,
