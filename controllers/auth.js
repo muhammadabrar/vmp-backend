@@ -60,7 +60,7 @@ return
   
   }
 };
-exports.verifyOTP = catchAsync(async (req, res) => {
+const verifyOTP = async (req, res) => {
   try {
     let OTP = req.body.OTP;
     let email = req.body.email;
@@ -103,7 +103,7 @@ exports.verifyOTP = catchAsync(async (req, res) => {
     });
     return;
   }
-});
+};
 // Login with an existing user
 const login = async (req, res, next) => {
   const { email, password } = req.body;
@@ -142,4 +142,4 @@ const login = async (req, res, next) => {
   }
 };
 
-module.exports = { register, login };
+module.exports = { register, login, verifyOTP};

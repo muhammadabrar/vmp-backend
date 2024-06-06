@@ -1,6 +1,6 @@
 const Adpost = require("../models/adpost");
 
-exports.addNewPost = catchAsync(async (req, res) => {
+exports.addNewPost = async (req, res) => {
   try {
     let {
       Uid,
@@ -64,10 +64,10 @@ exports.addNewPost = catchAsync(async (req, res) => {
       .status(STATUS_CODE.SERVER_ERROR)
       .json({ statusCode: STATUS_CODE.SERVER_ERROR });
   }
-});
+};
 
 
-exports.getPost = catchAsync(async (req, res) => {
+exports.getPost = async (req, res) => {
   const status = req.query.status || "Active";
   let page = parseInt(req.query.page) || 1;
   let limit = parseInt(req.query.limit) || 10;
@@ -191,4 +191,4 @@ exports.getPost = catchAsync(async (req, res) => {
       .status(STATUS_CODE.SERVER_ERROR)
       .json({ statusCode: STATUS_CODE.SERVER_ERROR });
   }
-});
+};

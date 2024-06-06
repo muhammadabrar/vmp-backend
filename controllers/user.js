@@ -1,4 +1,4 @@
-exports.getById = catchAsync(async (req, res) => {
+exports.getById = async (req, res) => {
     try {
       let _id = req.params.id;
       if (!_id) {
@@ -25,10 +25,10 @@ exports.getById = catchAsync(async (req, res) => {
         .status(STATUS_CODE.SERVER_ERROR)
         .json({ statusCode: STATUS_CODE.SERVER_ERROR });
     }
-  });
+  };
   
 
-  exports.updateAccount = catchAsync(async (req, res) => {
+  exports.updateAccount = async (req, res) => {
     try {
       let {fname, lname, dob, gender, profileImage, description} = req.body
   
@@ -84,5 +84,5 @@ exports.getById = catchAsync(async (req, res) => {
         statusCode: STATUS_CODE.SERVER_ERROR,
       });
     }
-  });
+  };
   
