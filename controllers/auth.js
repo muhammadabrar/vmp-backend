@@ -1,10 +1,14 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-
+const STATUS_CODE = require("../constants/statusCode")
 // Register a new user
+function generateRandomNumber() {
+  // Generates a random number between 1000 and 9999
+  return Math.floor(100000 + Math.random() * 900000);
+}
 const register = async (req, res, next) => {
-  const { username, email, password, phone } = req.body;
+  const { fname, lname, email, password, phone } = req.body;
 
   try {
     if (!email) {
@@ -37,8 +41,9 @@ const register = async (req, res, next) => {
       return;
     }
     const hashedPassword = await bcrypt.hash(password, 10);
+
     if (hashedPassword) {
-      const user = new User({ username, email, phone, password: hashedPassword });
+      const user = new User({ fname, lname, email, phone, password: hashedPassword, OTP: generateRandomNumber, OTP_validation_time: Date.now() + (30 * 60 * 1000)});
     await user.save();
     res.json({ message: 'Registration successful' });
 return

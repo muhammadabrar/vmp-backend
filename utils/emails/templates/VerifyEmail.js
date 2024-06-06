@@ -13,7 +13,7 @@ const verifyEmail = (website, code, email) => {
   <body>
   <p>Hi There,</p>
 
-  </p>You have successfully registered yourself with AR-4U. Your account has been created and you can set your password by clicking  <a href="${website}/verify?token=${code}"> this link</a>.</p>
+  </p>You have successfully registered yourself with AR-4U. Your account has been created and you can set your password by clicking  <a href="${website}/verify?OTP=${code}&email=${email}"> this link</a>.</p>
 
   </p>Regards <br/>
 AR-4U team</p>

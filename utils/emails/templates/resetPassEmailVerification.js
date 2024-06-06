@@ -90,9 +90,9 @@ const verifyEmail = (website, code, email) => {
             <div class="logo">
               <img src="${website}/logo.png" alt="" />
             </div>
-            <h3 class="title">Reset Your AR-4U Password</h3>
+            <h3 class="title">Verify Your Email</h3>
             <div class="card">
-              <h3 class="heading">AR-4U password reset</h3>
+              <h3 class="heading">Welcome to VMP</h3>
               <p class="statement">We heard that you lost your AR-4U password. Sorry about that!</p>
               <p class="statement">
                 but don't worry! you can use the following button to reset your
