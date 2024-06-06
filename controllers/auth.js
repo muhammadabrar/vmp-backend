@@ -43,7 +43,7 @@ const register = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     if (hashedPassword) {
-      const user = new User({ fname, lname, email, phone, password: hashedPassword, OTP: generateRandomNumber, OTP_validation_time: Date.now() + (30 * 60 * 1000)});
+      const user = new User({ fname, lname, email, phone, password: hashedPassword, OTP: Number(generateRandomNumber()), OTP_validation_time: Date.now() + (30 * 60 * 1000)});
     await user.save();
     res.json({ message: 'Registration successful' });
 return
@@ -56,7 +56,9 @@ return
     console.log(error);
     res
       .status(STATUS_CODE.SERVER_ERROR)
-      .json({  error });
+      .json({
+        message: "Server Error"
+      });
   
   }
 };
